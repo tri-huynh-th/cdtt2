@@ -1,0 +1,268 @@
+/* --- Global Styles & Body --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Serif', sans-serif;
+    background-color: #f7f7f7; /* Light grey background for the whole page */
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.background-blur {
+    background-image: url("images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(12px);
+    opacity: 0.08;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+/* --- Header --- */
+header {
+    background-color: #ffffff;
+    /* GIỮ NGUYÊN PADDING 15px trên dưới, 50px trái phải. Nếu muốn rộng hơn, hãy tăng 50px lên. */
+    padding: 15px 50px; 
+    display: flex;
+    justify-content: space-between; /* Đảm bảo các nhóm được đẩy ra hai đầu */
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-left {
+    flex-shrink: 0; /* Không cho phép co lại */
+    /* Bỏ margin-right ở đây để justify-content: space-between hoạt động hiệu quả hơn */
+}
+
+.header-left .logo-img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1; /* Cho phép nav chiếm không gian sẵn có */
+    justify-content: center; /* Căn giữa các liên kết nav trong không gian nó chiếm */
+    align-items: center;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #4D5E6F;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.header-nav a:hover {
+    color: #B81B1B;
+}
+
+/* Dropdown specific styles */
+.dropdown-menu-parent {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    /* SỬA ĐỔI: Điều chỉnh padding-bottom và margin-bottom để dropdown không bị mất */
+    padding-bottom: 5px; 
+    margin-bottom: -5px; 
+}
+
+.dropdown-toggle .dropdown-arrow {
+    margin-left: 2px;
+    font-size: 0.8em; 
+    color: #4D5E6F; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    
+    /* SỬA ĐỔI: Điều chỉnh top để nó khớp chính xác hơn */
+    top: calc(100% - 5px); /* Trừ đi 5px để bù lại padding-bottom của parent, đảm bảo không có khe hở */
+    left: 0;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown-menu-parent:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-size: 1em;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #B81B1B;
+}
+
+/* Header Right - Search, Icons, Login */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0; /* Không cho phép co lại */
+    /* Bỏ margin-left ở đây để justify-content: space-between hoạt động hiệu quả hơn */
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 5px 15px;
+    background-color: #f9f9f9;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px 0;
+    font-size: 1em;
+    width: 150px;
+}
+
+.search-box .search-icon {
+    color: #666;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.header-right .icons {
+    display: flex;
+    gap: 15px;
+}
+
+.header-right .icons a {
+    color: #4D5E6F;
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
+.header-right .icons a:hover {
+    color: #B81B1B;
+}
+
+.login-button {
+    background-color: #B81B1B;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.login-button:hover {
+    background-color: #9d1515;
+}
+
+
+/* --- Footer (Moved from homepage.css) --- */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+    text-align: justify;
+}
+
+.footer-section {
+    width: 260px;
+    margin-bottom: 20px;
+    word-break: break-word; 
+}
+
+.footer-logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #c62828;
+    margin-bottom: 10px;
+}
+
+.footer-slogan {
+    font-size: 16px !important; 
+    font-weight: 500;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #c62828;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 0.9rem;
+    color: #333333;
+    text-decoration: none;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px; 
+    align-items: flex-start;
+}
+
+.social-icons img {
+    transition: transform 0.3s ease;
+}
+
+.social-icons img[alt="Facebook"] {
+    width: 30px;
+    height: 30px;
+    margin-top: 7px; 
+}
+
+.social-icons img[alt="TikTok"] {
+    width: 45px;
+    height: 45px;
+    transform: scale(1.2)
+}
+
+.social-icons a {
+    color: #0077cc;
+}

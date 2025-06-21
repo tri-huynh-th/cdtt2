@@ -1,0 +1,94 @@
+/* --- Pagination --- */
+.pagination-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    gap: 10px;
+}
+
+.pagination-section a,
+.pagination-section span {
+    text-decoration: none;
+    color: #4D5E6F;
+    border: 1px solid #ccc;
+    border-radius: 50%; /* Numbers remain circular */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-weight: 500;
+    
+    /* Đảm bảo số trang có kích thước cố định và là hình tròn */
+    width: 36px; /* Chiều rộng cố định */
+    height: 36px; /* Chiều cao cố định */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Bao gồm padding và border vào kích thước */
+}
+
+.pagination-section a:hover {
+    background-color: #f0f0f0;
+    border-color: #B81B1B;
+    color: #B81B1B;
+}
+
+/* Style cho trang hiện tại */
+.pagination-section a.current-page,
+.pagination-section span.current-page { /* Cả thẻ a và span đều có thể là current-page */
+    background-color: #ffffff; /* Hoặc màu nền bạn muốn */
+    color: #B81B1B; /* Màu chữ */
+    border-color: #B81B1B; /* Viền màu đỏ */
+    cursor: default;
+    font-weight: bold; /* Chữ đậm hơn */
+}
+
+.pagination-section .nav-button {
+    background-color: #B81B1B;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Bo tròn hoàn toàn để giống viên thuốc */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap; /* Ngăn không cho chữ xuống dòng */
+    box-sizing: border-box; /* Bao gồm padding và border vào kích thước */
+    
+    height: 36px; /* Chiều cao cố định, bằng với các số trang */
+    padding: 0 20px; /* Padding ngang để tạo hình viên thuốc và đủ chỗ cho chữ */
+    min-width: 140px; /* Đặt chiều rộng tối thiểu cố định để cả hai nút bằng nhau và đủ chỗ chữ */
+    
+    /* THAY ĐỔI QUAN TRỌNG: Căn giữa nội dung bên trong nút */
+    justify-content: center;
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+}
+
+.pagination-section .nav-button i {
+    font-size: 0.9em; /* Kích thước icon, có thể điều chỉnh thêm */
+}
+
+.pagination-section .nav-button:hover {
+    background-color: #9d1515;
+    color: white;
+}
+
+/* Ellipsis in pagination */
+.pagination-section span.ellipsis {
+    border: none;
+    background-color: transparent;
+    color: #666;
+    cursor: default;
+}
+
+/* Disabled button styles */
+.pagination-section .nav-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #ccc;
+    border-color: #ccc;
+    pointer-events: none; /* Rất quan trọng để vô hiệu hóa click */
+}
+
+.pagination-section .nav-button.disabled:hover {
+    background-color: #ccc; /* Đảm bảo không thay đổi màu khi hover */
+    color: white;
+}
